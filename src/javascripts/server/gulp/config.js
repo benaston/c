@@ -36,6 +36,7 @@ const options = {
 		mainLess: 'main.less',
 		indexTemplate: 'index.template.html',
 		webComponentExample: 'example.html',
+		jsHintRC: '.jshintrc',
 	},
 	fileAbs: {},
 };
@@ -58,5 +59,6 @@ options.glob.testFiles = path.join(options.basePath, options.dirRel.tests, '**')
 options.glob.serverFiles = path.join(options.basePath, options.dirRel.javascripts, options.dir.server, '**');
 
 options.fileAbs.mainLess = path.join(options.dirAbs.stylesheets, 'application', options.fileName.mainLess);
+options.fileAbs.jsHintRC = path.join(options.basePath, options.fileName.jsHintRC);
 
 module.exports = options;

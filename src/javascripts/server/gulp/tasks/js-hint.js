@@ -1,17 +1,17 @@
 /* globals module, require */
 'use strict';
 
-const concat = require('gulp-jshint');
+const jsHint = require('gulp-jshint');
 
 module.exports = function(options) {
 
 	return {
-		name: 'jshint',
+		name: 'jsHint',
 		task: function() {
-			// return this.src([options.glob.js, '!' + options.glob.gulpFiles, '!' + options.glob.testFiles])
-			// 	.pipe(concat(options.packageName + '.min.js'))
-			// 	.pipe(uglify())
-			// 	.pipe(tap(file => sharedMemory.js = file.contents.toString()));
+			return this.src(options.glob.js)
+				.pipe(jsHint(options.fileAbs.jsHintRC))
+				.pipe(jsHint.reporter('default'))
+				.pipe(jsHint.reporter('fail')); // Stops the pipeline if errors.
 		},
 	};
 

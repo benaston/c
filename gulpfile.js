@@ -26,9 +26,10 @@ var configuredTasks = Object.keys(tasks)
  * the tasks remains separate from their 
  * registration with gulp.
  */
+gulp.task('jsHint', partial(configuredTasks.jsHint, sharedMemory));
 gulp.task('css', partial(configuredTasks.css, sharedMemory));
 gulp.task('js', partial(configuredTasks.js, sharedMemory));
 gulp.task('compileWebComponents', ['css', 'js'], partial(configuredTasks.compileWebComponents, sharedMemory));
-gulp.task('replace', ['css', 'js', 'compileWebComponents'], partial(configuredTasks.replace, sharedMemory));
+gulp.task('replace', ['jsHint', 'css', 'js', 'compileWebComponents'], partial(configuredTasks.replace, sharedMemory));
 gulp.task('build', ['replace']);
 gulp.task('default', ['build']);

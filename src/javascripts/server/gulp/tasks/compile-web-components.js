@@ -21,7 +21,8 @@ module.exports = function(options) {
 		name: 'compileWebComponents',
 		task: function(sharedMemory) {
 
-			var tasks = getDirectories(options.dirAbs.webComponents).map(function(dir) {
+			var tasks = getDirectories(options.dirAbs.webComponents)
+			.map(function(dir) {
 				// Used as a holding location for 
 				// the JavaScript and CSS generated
 				// by each sub task. Using a bare 

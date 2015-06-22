@@ -16,7 +16,6 @@ module.exports = function(options) {
 	return {
 		name: 'js',
 		task: function(sharedMemory) {
-			console.log('options.glob.js', options.glob.js);
 			return this.src([options.glob.js, 
 				'!' + options.glob.serverFiles, 
 				'!' + options.glob.gulpFiles, 
